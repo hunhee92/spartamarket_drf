@@ -69,6 +69,6 @@ class ProductsDetailAPIView(APIView):
         up_user = products.account.id
         print(user, up_user)
         if user == up_user:
-            products.delete
+            products.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(status=status.HTTP_400_BAD_REQUEST)

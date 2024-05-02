@@ -30,10 +30,15 @@ class AccountProfileAPIView(APIView):
         return Response(serializer.data)
 
     def post(self, request, username):  # 로그아웃
+        print("로그아웃")
+        refresh_token = request.data.get("refresh_token")
+        if refresh_token is None:
+            print("로그아웃 실패: refresh_token이 제공되지 않음")
+            return Response({"error": "Refresh token is required."}, status=status.HTTP_400_BAD_REQUEST)
         try:
-            refresh_token = request.data.get("refresh_token")
             token = RefreshToken(refresh_token)
             token.blacklist()
+            print("로그아웃 성공")
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -49,8 +54,10 @@ class AccountProfileAPIView(APIView):
                 return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
+
 class DelteUserAPIView(APIView):
     permission_classes = [IsAuthenticated]
+
     def delete(self, request, username):
         print("del 들어왓니")
         user = get_object_or_404(User, username=username)
