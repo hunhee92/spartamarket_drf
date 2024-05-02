@@ -65,7 +65,9 @@ product
 
 상품글 삭제 성공
 ![image](https://github.com/hunhee92/spartamarket_drf/assets/159861490/66329959-b805-4fa6-9fe5-29d74d476032)
-![image](https://github.com/hunhee92/spartamarket_drf/assets/159861490/cb648e75-ff15-4176-a0c5-2f9ff1ec211f)
+한번 더 클릭
+![image](https://github.com/hunhee92/spartamarket_drf/assets/159861490/b5d6565a-ef38-45a9-9e48-8b25bb309d4d)
+
 
 
 
